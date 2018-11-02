@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.jxf.mapper.excel.ExcelMapper" >
+	<resultMap id="excelMap" type="Excel">
+		<id property="bookId" column="BOOK_ID" />
+		<result property="bookName" column="BOOK_NAME" />
+		<result property="bookAuthor" column="Book_AUTHOR" />
+		<result property="maleMaster" column="MALE_MASTER" />
+		<result property="empress" column="EMPRESS" />
+	</resultMap>
+ 	
+ 	<select id="selectById" parameterType="Integer" resultMap="excelMap">
+		select * from xf_sys_excel where BOOK_ID = #{id}
+	</select>
+	
+	
+	
+</mapper>

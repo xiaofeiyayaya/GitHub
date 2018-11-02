@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cn.jxf.mapper.system.RoleResMapper" >
+	<resultMap id="roleResMap" type="RoleRes">
+		<id property="id" column="id" />
+		<result property="resId" column="res_id" />
+		<result property="roleId" column="role_id" />
+	</resultMap>
+ 	
+ 	<select id="searchResId" parameterType="map" resultMap="roleResMap">
+		select * from xf_sys_roleres rore join xf_sys_resource res on rore.res_id=res.res_id 
+		<trim prefix="where" prefixOverrides="AND|OR">
+			<if test="roleId != null and roleId != ''">
+				 rore.role_id = #{roleId}
+			</if>
+		</trim>
+	</select>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test">
+  <process id="qingjia" name="请假" isExecutable="true">
+    <startEvent id="startevent1" name="Start"></startEvent>
+    <userTask id="shenqing" name="请假申请" activiti:assignee="#{user}"></userTask>
+    <userTask id="shenpi1" name="审批1" activiti:candidateUsers="#{users}"></userTask>
+    <endEvent id="endevent1" name="End"></endEvent>
+    <sequenceFlow id="flow1" sourceRef="startevent1" targetRef="shenqing"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="shenqing" targetRef="shenpi1"></sequenceFlow>
+    <userTask id="shenpi2" name="审批2" activiti:candidateGroups="#{role}"></userTask>
+    <sequenceFlow id="flow4" sourceRef="shenpi1" targetRef="shenpi2"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="shenpi2" targetRef="endevent1">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bohui==0}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="flow6" name="驳回" sourceRef="shenpi2" targetRef="shenqing">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${bohui==1}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_qingjia">
+    <bpmndi:BPMNPlane bpmnElement="qingjia" id="BPMNPlane_qingjia">
+      <bpmndi:BPMNShape bpmnElement="startevent1" id="BPMNShape_startevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="490.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="shenqing" id="BPMNShape_shenqing">
+        <omgdc:Bounds height="55.0" width="105.0" x="455.0" y="240.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="shenpi1" id="BPMNShape_shenpi1">
+        <omgdc:Bounds height="55.0" width="105.0" x="455.0" y="340.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endevent1" id="BPMNShape_endevent1">
+        <omgdc:Bounds height="35.0" width="35.0" x="490.0" y="530.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="shenpi2" id="BPMNShape_shenpi2">
+        <omgdc:Bounds height="55.0" width="105.0" x="455.0" y="440.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1">
+        <omgdi:waypoint x="507.0" y="185.0"></omgdi:waypoint>
+        <omgdi:waypoint x="507.0" y="240.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2">
+        <omgdi:waypoint x="507.0" y="295.0"></omgdi:waypoint>
+        <omgdi:waypoint x="507.0" y="340.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4">
+        <omgdi:waypoint x="507.0" y="395.0"></omgdi:waypoint>
+        <omgdi:waypoint x="507.0" y="440.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5">
+        <omgdi:waypoint x="507.0" y="495.0"></omgdi:waypoint>
+        <omgdi:waypoint x="507.0" y="530.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6">
+        <omgdi:waypoint x="560.0" y="467.0"></omgdi:waypoint>
+        <omgdi:waypoint x="700.0" y="467.0"></omgdi:waypoint>
+        <omgdi:waypoint x="700.0" y="267.0"></omgdi:waypoint>
+        <omgdi:waypoint x="560.0" y="267.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="100.0" x="599.0" y="470.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
