@@ -27,7 +27,7 @@ public class UserRestFulController {
 	 * @param id
 	 * @return
 	 */
-	@ApiOperation(value = "获取用户详细信息", notes = "根据url的id来获取用户详细信息")
+/*	@ApiOperation(value = "获取用户详细信息", notes = "根据url的id来获取用户详细信息")
 	@ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "Integer", paramType = "path")
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	@ResponseBody
@@ -44,6 +44,6 @@ public class UserRestFulController {
 			e.printStackTrace();
 		}
 		return student;
-	}
+	}*/
 
 }

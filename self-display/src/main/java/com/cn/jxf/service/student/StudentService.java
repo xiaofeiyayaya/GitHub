@@ -1,19 +1,27 @@
 package com.cn.jxf.service.student;
+import java.util.Map;
 
-import java.util.List;
-
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
 
 import com.cn.jxf.domain.student.Student;
-@WebService
+import com.cn.jxf.domain.system.Page;
+
+/**
+ * Student的服务接口
+ * 
+ * @author 
+ *
+ */
 public interface StudentService {
-	@WebMethod
-	Student findById(@WebParam(name = "id") Integer id);
+
+
+	Student select(Integer id);
 	
-	@WebMethod
-	Student findByName(@WebParam(name = "name") String name);
+	Page<Student> list(Map<String, Object> map);
 	
-	List<Student> studentList();
+	void insert(Student student);
+	
+	void update(Student student);
+	
+	void delete(Integer id);
+	
 }

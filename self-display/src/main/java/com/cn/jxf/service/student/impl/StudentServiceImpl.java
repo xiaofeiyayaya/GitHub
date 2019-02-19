@@ -1,46 +1,60 @@
 package com.cn.jxf.service.student.impl;
-
 import java.util.List;
+import java.util.Map;
 
-import javax.annotation.Resource;
-import javax.jws.WebService;
-
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.cn.jxf.domain.student.Student;
+import com.cn.jxf.domain.system.Page;
 import com.cn.jxf.mapper.student.StudentMapper;
 import com.cn.jxf.service.student.StudentService;
+import com.cn.jxf.util.PageUtil;
 
+import javax.annotation.Resource;
+
+
+/**
+ * Student的服务接口的实现类
+ * 
+ * @author 
+ *
+ */
 @Service("studentService")
-@WebService(serviceName = "studentService"//服务名
-,targetNamespace = "http://student.service.jxf.cn.com/"//报名倒叙，并且和接口定义保持一致
-,endpointInterface = "com.cn.jxf.service.student.StudentService")//包名
-public class StudentServiceImpl implements StudentService{
-	
-	@Resource(name="studentMapper")
+public class StudentServiceImpl implements StudentService {
+
+	@Resource(name = "studentMapper")
 	private StudentMapper studentMapper;
 	
-
+	@Override
+	public Page<Student> list(Map<String, Object> map) {
+		PageUtil.setStartEnd(map);
+		List<Student> list = studentMapper.list(map);
+		Page<Student> page = new Page<Student>();
+		PageUtil.getPageFromMap(page, map);
+		page.setData(list);
+		int totalCount = studentMapper.count(map);
+		page.setCount(totalCount);
+		return page;
+	}
 	
-	@Cacheable(value = "student", key = "#id")
-	public Student findById(Integer id) {
-		Student student = studentMapper.selectByPrimaryKey(id);
-		return student;
+	@Override
+	public Student select(Integer id){
+		return studentMapper.select(id);
+	}
+	
+	@Override
+	public void insert(Student student) {
+		studentMapper.insert(student);
 	}
 
 	@Override
-	public Student findByName(String name) {
-		Student student = studentMapper.findByName(name);
-		return student;
+	public void update(Student student) {
+		studentMapper.update(student);
 	}
-
-	@CachePut(value = "student")
-	public List<Student> studentList() {
-		List<Student> list = studentMapper.list();
-		return list;
+	
+	@Override
+	public void delete(Integer id) {
+		studentMapper.delete(id);
 	}
 
 }

@@ -81,9 +81,17 @@
 		})
 	})
 </script>
+
+<link rel="stylesheet" href="${ctx }/formSelects-v4.css" />
+<script src="${ctx }/layui.all.js" type="text/javascript" charset="utf-8"></script>
+<script src="${ctx }/formSelects-v4.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    var formSelects = layui.formSelects;
+     
+</script>
 </head>
 <body>
-	省份
+	<!-- 省份
 	<select name="" id="allProvice" onchange="showCitys()">
 		<option value="">省份</option>
 		<option value="">广东</option>
@@ -127,6 +135,16 @@
 	</div>
 	
 	<button id="html">html</button>
+ -->
+ 
+ 	
 
+<select name="city" xm-select="select1">
+    <option value="1" disabled="disabled">北京</option>
+    <option value="2" selected="selected">上海</option>
+    <option value="3">广州</option>
+    <option value="4" selected="selected">深圳</option>
+    <option value="5">天津</option>
+</select>
 </body>
 </html>

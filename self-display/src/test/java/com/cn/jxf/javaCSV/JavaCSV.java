@@ -21,7 +21,7 @@ public class JavaCSV {
 	@Test
 	public void write() {
 		Student stu = new Student();
-		stu.setId(111);
+		stu.setStuId(111);
 		String ShortName = null;
 		if(stu.getId() == null){
 			ShortName = "";

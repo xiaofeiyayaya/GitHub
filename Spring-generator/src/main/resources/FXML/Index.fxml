@@ -86,12 +86,12 @@
 																		<Font size="16.0" />
 																	</font>
 																</TextField>
-																<TextField fx:id="txtSqlName" text="{c}Dao" GridPane.columnIndex="3" GridPane.rowIndex="5">
+																<TextField fx:id="txtSqlName" text="{c}Mapper" GridPane.columnIndex="3" GridPane.rowIndex="5">
 																	<font>
 																		<Font size="16.0" />
 																	</font>
 																</TextField>
-																<TextField fx:id="txtAssistName" disable="true" text="Assist" GridPane.columnIndex="3" GridPane.rowIndex="9">
+																<TextField fx:id="txtAssistName" disable="true" text="Page" GridPane.columnIndex="3" GridPane.rowIndex="9">
 																	<font>
 																		<Font size="16.0" />
 																	</font>
@@ -143,7 +143,7 @@
 																		<Insets right="3.0" />
 																	</GridPane.margin>
 																</Label>
-																<Label fx:id="lblSqlName" text="Dao类名:" GridPane.columnIndex="2" GridPane.rowIndex="5">
+																<Label fx:id="lblSqlName" text="Mapper类名:" GridPane.columnIndex="2" GridPane.rowIndex="5">
 																	<font>
 																		<Font size="20.0" />
 																	</font>
@@ -151,7 +151,7 @@
 																		<Insets right="3.0" />
 																	</GridPane.margin>
 																</Label>
-																<Label fx:id="lblAssistName" text="Assist类名:" GridPane.columnIndex="2" GridPane.rowIndex="9">
+																<Label fx:id="lblAssistName" text="Page类名:" GridPane.columnIndex="2" GridPane.rowIndex="9">
 																	<font>
 																		<Font size="20.0" />
 																	</font>
@@ -164,7 +164,7 @@
 																		<Insets right="3.0" />
 																	</GridPane.margin>
 																</Label>
-																<TextField fx:id="txtEntityPackage" text="com.entity" GridPane.columnIndex="1" GridPane.rowIndex="2">
+																<TextField fx:id="txtEntityPackage" text="com.domain" GridPane.columnIndex="1" GridPane.rowIndex="2">
 																	<font>
 																		<Font size="16.0" />
 																	</font>
@@ -184,7 +184,7 @@
 																		<Font size="16.0" />
 																	</font>
 																</TextField>
-																<TextField fx:id="txtSqlPackage" text="com.dao" GridPane.columnIndex="1" GridPane.rowIndex="5">
+																<TextField fx:id="txtSqlPackage" text="com.mapper" GridPane.columnIndex="1" GridPane.rowIndex="5">
 																	<font>
 																		<Font size="16.0" />
 																	</font>
@@ -246,7 +246,7 @@
 																		<Insets right="3.0" />
 																	</GridPane.margin>
 																</Label>
-																<Label fx:id="lblSqlPackage" text="Dao包名:" GridPane.rowIndex="5">
+																<Label fx:id="lblSqlPackage" text="Mapper包名:" GridPane.rowIndex="5">
 																	<font>
 																		<Font size="20.0" />
 																	</font>

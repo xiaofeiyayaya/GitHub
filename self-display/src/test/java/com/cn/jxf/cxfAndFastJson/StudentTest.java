@@ -18,6 +18,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.cn.jxf.Application;
 import com.cn.jxf.domain.student.Student;
+import com.cn.jxf.mapper.student.StudentMapper;
 import com.cn.jxf.service.student.StudentService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,18 +27,20 @@ import com.cn.jxf.service.student.StudentService;
 public class StudentTest {
 	@Resource
 	private StudentService studentService;
+	
+	@Resource
+	private StudentMapper studentMapper;
 
 	@Test
 	public void test() {
-		Student student = studentService.findById(1);
-		System.out.println(student.getName());
+		
 	}
 
 	@Test
 	public void cl2() {
 		// 创建动态客户端
 		JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
-		Client client = dcf.createClient("http://127.0.0.1/ws/gs?wsdl");
+		Client client = dcf.createClient("http://10.176.169.116/ws/gs?wsdl");
 		QName q = new QName("http://gs.service.gs.cm.com/", "getCompanyInfo");
 		// 需要密码的情况需要加上用户名和密码
 		// client.getOutInterceptors().add(new ClientLoginInterceptor(USER_NAME,
@@ -45,7 +48,7 @@ public class StudentTest {
 		Object[] objects = new Object[0];
 		try {
 			// invoke('方法名',参数1,参数2,参数3....);
-			objects = client.invoke(q,"GHaf8AY6jC","A1");
+			objects = client.invoke(q,"vFiM7Tgtt","A1");
 			//objects = client.invoke("findByName", "xiaofei");
 			String resultJson = JSONObject.toJSONString(objects[0]);
 			System.out.println("返回数据:" + resultJson);
@@ -57,7 +60,7 @@ public class StudentTest {
 	@Test
 	public void fastJson(){
 		Student student = new Student();
-		student.setId(111);
+		student.setStuId(111);
 		student.setName("2222");
 		String string = JSON.toJSONString(student);//java bean 转json字符串
 		Object object = JSON.toJSON(student);//java bean 转json对象

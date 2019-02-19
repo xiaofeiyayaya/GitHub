@@ -24,7 +24,7 @@ public class NetJson {
 	@Test
 	public void netJson(){
 		Student student = new Student();
-		student.setId(111);
+		student.setStuId(111);
 		student.setName("2222");
 		
 		List<Student> list = new ArrayList<>();

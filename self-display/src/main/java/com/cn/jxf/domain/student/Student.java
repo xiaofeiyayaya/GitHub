@@ -1,43 +1,57 @@
 package com.cn.jxf.domain.student;
 
-public class Student {
-    private Integer id;
+import com.cn.jxf.domain.BaseEntity;
 
-    private String name;
+/**
+ * student实体类
+ * 
+ * @author 
+ *
+ */
+public class Student extends BaseEntity{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	//
+	private Integer stuId; 
+	//姓名
+	private String name; 
+	//性别，女为0，男为1
+	private Integer sex; 
+	//备注
+	private String note; 
+	
+	
+	public Integer getStuId() {
+		return stuId;
+	}
 
-    private Byte sex;
+	public void setStuId(Integer stuId) {
+		this.stuId = stuId;
+	}
+	
+	public String getName() {
+		return name;
+	}
 
-    private String note;
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Integer getSex() {
+		return sex;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setSex(Integer sex) {
+		this.sex = sex;
+	}
+	
+	public String getNote() {
+		return note;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public Byte getSex() {
-        return sex;
-    }
-
-    public void setSex(Byte sex) {
-        this.sex = sex;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note == null ? null : note.trim();
-    }
+	public void setNote(String note) {
+		this.note = note;
+	}
 }

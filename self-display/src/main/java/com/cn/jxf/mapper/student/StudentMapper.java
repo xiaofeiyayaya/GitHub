@@ -1,23 +1,18 @@
 package com.cn.jxf.mapper.student;
 
-import java.util.List;
-
 import com.cn.jxf.domain.student.Student;
+import com.cn.jxf.mapper.BaseMapper;
 
-public interface StudentMapper {
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(Student record);
-
-    int insertSelective(Student record);
-
-    Student selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Student record);
-
-    int updateByPrimaryKey(Student record);
-    
-    Student findByName(String name);
-    
-    List<Student> list();
+/**
+ * Student的Mapper接口
+ * 
+ * @author 
+ *
+ */
+public interface StudentMapper extends BaseMapper<Student, String>{
+	
+	Student select(Integer id);
+	
+	void delete(Integer id);
+	
 }

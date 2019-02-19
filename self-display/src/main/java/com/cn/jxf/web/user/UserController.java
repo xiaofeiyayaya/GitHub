@@ -91,7 +91,7 @@ public class UserController {
 		map.put("roleId", roleId);
 		List<Res> resList = resourceMapper.searchResource(map);
 		
-		return "user/test2";
+		return "user/test3";
 	}
 	
 	

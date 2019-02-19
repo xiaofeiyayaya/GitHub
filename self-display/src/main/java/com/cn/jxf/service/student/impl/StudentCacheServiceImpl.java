@@ -1,4 +1,4 @@
-package com.cn.jxf.service.student.impl;
+/*package com.cn.jxf.service.student.impl;
 
 import java.util.List;
 
@@ -59,3 +59,4 @@ public class StudentCacheServiceImpl implements StudentCacheService{
 	}
 
 }
+*/

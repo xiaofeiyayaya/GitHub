@@ -86,6 +86,7 @@ public class ConverterUtil {
 				// 列名首字母大写
 				String upField = StrUtil.fristToUpCase(c.getTdField());
 				attr.setFieldPascal(upField);
+				
 				// java数据类型
 				String javaType = attr.getJavaType();
 				if ("boolean".equalsIgnoreCase(javaType)) {

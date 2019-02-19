@@ -268,13 +268,13 @@
 			<artifactId>httpcore</artifactId>
 			<version>4.4.5</version>
 		</dependency>
-		
-		 <dependency>
+
+		<dependency>
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.0</version>
 		</dependency>
-		
+
 
 		<!-- https://mvnrepository.com/artifact/org.apache.ant/ant 文件压缩与解压缩 -->
 		<dependency>
@@ -324,12 +324,26 @@
 			<artifactId>jython-standalone</artifactId>
 			<version>2.7.0</version>
 		</dependency>
-		
+
 		<!-- redis -->
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency> 
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+
+
+		<!-- dom4j -->
+		<dependency>
+			<groupId>org.dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>2.0.2</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
