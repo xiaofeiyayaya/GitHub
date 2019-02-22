@@ -65,8 +65,8 @@ public class ZipDemo {
     
     @Test
     public void upZipFile(){
-    	String zip = "D:/text";
-    	String zipPath = "D:/text/text.zip";
+    	String zip = "D:\\text";
+    	String zipPath = "C:\\Users\\Administrator\\Desktop\\项目资料\\CSTP\\cstp本币\\20181123\\盘前\\机构主从关系信息\\机构主从关系信息_20181123.xml.zip";
     	//File file = new File("D:/text/text.zip");
     	List<File> upzipFile = ZipUtil.upzip(zipPath,zip);
     	for (File file2 : upzipFile) {
