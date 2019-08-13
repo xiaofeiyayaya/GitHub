@@ -8,6 +8,10 @@
 		<result property="passWord" column="PASS_WORD" />
 	</resultMap>
  	
+ 	<select id="searchAllUser" resultMap="userMap">
+		select * from xf_sys_user
+	</select>
+ 	
  	<select id="findUserByCode" parameterType="String" resultMap="userMap">
 		select * from
 		xf_sys_user where USER_CODE = #{userCode}

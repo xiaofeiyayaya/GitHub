@@ -1,8 +1,8 @@
 package com.cn.jxf.domain.user;
 
-import java.io.Serializable;
+import com.cn.jxf.domain.BaseEntity;
 
-public class User implements Serializable{
+public class User extends BaseEntity{
 	
 	/**
 	 * 

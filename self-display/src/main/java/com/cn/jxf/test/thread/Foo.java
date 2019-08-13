@@ -12,4 +12,9 @@ public class Foo {
 		x = x -y;
 		return x;
 	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println(System.currentTimeMillis());
+	}
 }

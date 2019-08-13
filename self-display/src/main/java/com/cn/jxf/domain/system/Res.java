@@ -1,35 +1,41 @@
 package com.cn.jxf.domain.system;
 
-import java.io.Serializable;
+import java.util.List;
 
-public class Res implements Serializable{
+import com.cn.jxf.domain.BaseEntity;
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Res extends BaseEntity {
 
-	private Integer resId;// 主键.
-	
-	private String resName;// 名称.
-	
-	private String resType;// 资源类型，[menu|button]
-	
-	private String resUrl;// 资源路径.
-	
-	private String resLogo; // 权限字符串,menu例子：role:*，button例子：role:create,role:update,role:delete,role:view
-	
-	private Long parentId; // 父编号
-	
-	private Integer resLever;//级别
-	
-	private Integer resOrder;//排序
+	private static final long serialVersionUID = 3933733800364686524L;
+	private int resId;
+	private String resName;
+	private int resType;
+	private String url;
+	private String resLogo;
+	private String parentId;
+	private int resOrder;
+	private int resLevel;
+	private String isSys;
+	private boolean check;
+	private List<Res> ress;
 
-	public Integer getResId() {
+	public List<Res> getRess() {
+		return ress;
+	}
+
+	public void setRess(List<Res> ress) {
+		this.ress = ress;
+	}
+
+	public String getId() {
+		return String.valueOf(this.resId);
+	}
+
+	public int getResId() {
 		return resId;
 	}
 
-	public void setResId(Integer resId) {
+	public void setResId(int resId) {
 		this.resId = resId;
 	}
 
@@ -41,20 +47,20 @@ public class Res implements Serializable{
 		this.resName = resName;
 	}
 
-	public String getResType() {
+	public int getResType() {
 		return resType;
 	}
 
-	public void setResType(String resType) {
+	public void setResType(int resType) {
 		this.resType = resType;
 	}
 
-	public String getResUrl() {
-		return resUrl;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setResUrl(String resUrl) {
-		this.resUrl = resUrl;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public String getResLogo() {
@@ -65,28 +71,44 @@ public class Res implements Serializable{
 		this.resLogo = resLogo;
 	}
 
-	public Long getParentId() {
+	public String getParentId() {
 		return parentId;
 	}
 
-	public void setParentId(Long parentId) {
+	public void setParentId(String parentId) {
 		this.parentId = parentId;
 	}
 
-	public Integer getResLever() {
-		return resLever;
-	}
-
-	public void setResLever(Integer resLever) {
-		this.resLever = resLever;
-	}
-
-	public Integer getResOrder() {
+	public int getResOrder() {
 		return resOrder;
 	}
 
-	public void setResOrder(Integer resOrder) {
+	public void setResOrder(int resOrder) {
 		this.resOrder = resOrder;
 	}
-	
+
+	public int getResLevel() {
+		return resLevel;
+	}
+
+	public void setResLevel(int resLevel) {
+		this.resLevel = resLevel;
+	}
+
+	public String getIsSys() {
+		return isSys;
+	}
+
+	public void setIsSys(String isSys) {
+		this.isSys = isSys;
+	}
+
+	public boolean isCheck() {
+		return check;
+	}
+
+	public void setCheck(boolean check) {
+		this.check = check;
+	}
+
 }

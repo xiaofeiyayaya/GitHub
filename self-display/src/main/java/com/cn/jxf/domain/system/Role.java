@@ -1,36 +1,29 @@
 package com.cn.jxf.domain.system;
 
-import java.io.Serializable;
+import com.cn.jxf.domain.BaseEntity;
 
-public class Role implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Role extends BaseEntity {
 
-	private Integer roleId;
-	
+	private static final long serialVersionUID = 7746031427397117550L;
 	private String roleName;
-	
+	private String roleLogo;
 	private String description;
+	private String isSys;
 	
-	private String available;
-
-	public Integer getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(Integer roleId) {
-		this.roleId = roleId;
-	}
-
 	public String getRoleName() {
 		return roleName;
 	}
 
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
+	}
+
+	public String getRoleLogo() {
+		return roleLogo;
+	}
+
+	public void setRoleLogo(String roleLogo) {
+		this.roleLogo = roleLogo;
 	}
 
 	public String getDescription() {
@@ -41,14 +34,12 @@ public class Role implements Serializable{
 		this.description = description;
 	}
 
-	public String getAvailable() {
-		return available;
+	public String getIsSys() {
+		return isSys;
 	}
 
-	public void setAvailable(String available) {
-		this.available = available;
+	public void setIsSys(String isSys) {
+		this.isSys = isSys;
 	}
-	
-	
-	
+
 }

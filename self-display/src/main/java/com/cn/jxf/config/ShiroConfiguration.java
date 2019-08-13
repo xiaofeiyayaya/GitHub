@@ -28,17 +28,30 @@ public class ShiroConfiguration {
 		// 配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了
 		filterChainDefinitionMap.put("/logout", "logout");
 		// <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
-		filterChainDefinitionMap.put("/user/tologin", "anon");
+		filterChainDefinitionMap.put("/user/logon", "anon");
 		filterChainDefinitionMap.put("/user/main", "authc");
-		
-		//配置记住我过滤器或认证通过可以访问的地址(当上次登录时，记住我以后，在下次访问/或/index时，可以直接访问，不需要登陆)
-	    //filterChainDefinitionMap.put("/user/main", "user");
-		// 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面    (没有认证的url跳转路径)
-		shiroFilterFactoryBean.setLoginUrl("/user/tologin");
+		filterChainDefinitionMap.put("/user/userList", "authc");
+		filterChainDefinitionMap.put("/user/toAddUser", "authc");
+		filterChainDefinitionMap.put("/user/userAdd", "authc");
+		filterChainDefinitionMap.put("/user/toEditUser", "authc");
+		filterChainDefinitionMap.put("/user/editUser", "authc");
+		filterChainDefinitionMap.put("/user//deleteUser", "authc");
+		filterChainDefinitionMap.put("/user/toResetPsd", "authc");
+		filterChainDefinitionMap.put("/user/resetPsd", "authc");
+		filterChainDefinitionMap.put("/pool/*", "authc");
+		filterChainDefinitionMap.put("/trade/*", "authc");
+		filterChainDefinitionMap.put("/grade/*", "authc");
+		filterChainDefinitionMap.put("/approve/*", "authc");
+		filterChainDefinitionMap.put("/balance/*", "authc");
+		filterChainDefinitionMap.put("/role/*", "authc");
+		filterChainDefinitionMap.put("/res/*", "authc");
+
+		// 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
+		shiroFilterFactoryBean.setLoginUrl("/user/dologin");
 		// 登录成功后要跳转的链接
 		shiroFilterFactoryBean.setSuccessUrl("/user/main");
 		// 未授权界面;
-		shiroFilterFactoryBean.setUnauthorizedUrl("/user/tologin");
+		shiroFilterFactoryBean.setUnauthorizedUrl("/login");
 
 		shiroFilterFactoryBean
 				.setFilterChainDefinitionMap(filterChainDefinitionMap);
@@ -52,7 +65,7 @@ public class ShiroConfiguration {
 		//设置realm
 		securityManager.setRealm(myShiroRealm());
 		//注入缓存管理器;
-	    //securityManager.setCacheManager(ehCacheManager());//这个如果执行多次，也是同样的一个对象;
+	    securityManager.setCacheManager(ehCacheManager());//这个如果执行多次，也是同样的一个对象;
 	    //注入记住我管理器
 		//securityManager.setRememberMeManager(rememberMeManager());
 	    
@@ -77,12 +90,12 @@ public class ShiroConfiguration {
      * 可见securityManager是整个shiro的核心；
      * @return
      */
-   /* @Bean
+    @Bean
     public EhCacheManager ehCacheManager(){
        EhCacheManager cacheManager = new EhCacheManager();
        cacheManager.setCacheManagerConfigFile("classpath:config/ehcache-shiro.xml");
        return cacheManager;
-    }*/
+    }
 	
 	
 	/**

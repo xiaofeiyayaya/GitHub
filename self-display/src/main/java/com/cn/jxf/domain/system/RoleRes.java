@@ -1,44 +1,27 @@
 package com.cn.jxf.domain.system;
 
-import java.io.Serializable;
+import com.cn.jxf.domain.BaseEntity;
 
-public class RoleRes implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class RoleRes extends BaseEntity {
 
-	private Integer id;
+	private static final long serialVersionUID = 4846568592965730162L;
+	private String resId;
+	private String roleId;
 
-	private Integer resId;
-	
-	private Integer roleId;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getResId() {
+	public String getResId() {
 		return resId;
 	}
 
-	public void setResId(Integer resId) {
+	public void setResId(String resId) {
 		this.resId = resId;
 	}
 
-	public Integer getRoleId() {
+	public String getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(Integer roleId) {
+	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
-	
-	
-	
+
 }

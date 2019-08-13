@@ -18,14 +18,14 @@ public class TimeDemo1 {
 		}
 	}
 	
-	//@Scheduled(cron = "0 0/1 9-17 * * ?")
+	/*@Scheduled(cron = "0 0/1 9-17 ? * *")*/
 	public void demo4(){
-		try {
+		/*try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		System.out.println("444444444"+"----"+"id"+Thread.currentThread().getId()+"---------name"+Thread.currentThread().getName()+"----"+System.currentTimeMillis());
 	}
 }

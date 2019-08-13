@@ -2,6 +2,7 @@ package com.cn.jxf.cxfAndFastJson;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.xml.namespace.QName;
@@ -20,6 +21,9 @@ import com.cn.jxf.Application;
 import com.cn.jxf.domain.student.Student;
 import com.cn.jxf.mapper.student.StudentMapper;
 import com.cn.jxf.service.student.StudentService;
+
+import net.minidev.json.JSONArray;
+import net.sf.json.JsonConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = Application.class)
@@ -40,15 +44,15 @@ public class StudentTest {
 	public void cl2() {
 		// 创建动态客户端
 		JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
-		Client client = dcf.createClient("http://10.176.169.116/ws/gs?wsdl");
-		QName q = new QName("http://gs.service.gs.cm.com/", "getCompanyInfo");
+		Client client = dcf.createClient("http://10.189.98.170/ws/info?wsdl");
+		QName q = new QName("http://trade.service.counterparty.cm.com/", "getAssetAccount");
 		// 需要密码的情况需要加上用户名和密码
 		// client.getOutInterceptors().add(new ClientLoginInterceptor(USER_NAME,
 		// PASS_WORD));
 		Object[] objects = new Object[0];
 		try {
 			// invoke('方法名',参数1,参数2,参数3....);
-			objects = client.invoke(q,"vFiM7Tgtt","A1");
+			objects = client.invoke(q,"16429");
 			//objects = client.invoke("findByName", "xiaofei");
 			String resultJson = JSONObject.toJSONString(objects[0]);
 			System.out.println("返回数据:" + resultJson);

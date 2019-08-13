@@ -14,6 +14,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 @Configuration
 public class Swagger2Config {
 
+	
+	//默认访问地址 http://127.0.0.1/swagger-ui.html
 	@Bean
 	public Docket createRestApi() {
 		return new Docket(DocumentationType.SWAGGER_2)
@@ -28,7 +30,7 @@ public class Swagger2Config {
 		return new ApiInfoBuilder()
 				.title("self-display")//设置文档的标题
 				.description("后台接口测试")//设置文档的描述->1.Overview
-				.contact(new Contact("ABC Boot", "http://www.abc.comt", ""))//设置文档的联系方式->1.2 Contact information
+				.contact(new Contact("小飞", "http://www.baidu.com", ""))//设置文档的联系方式->1.2 Contact information
 				.termsOfServiceUrl("http://blog.csdn.net/saytime")//设置文档的License信息->1.3 License information
 				.version("1.0")//设置文档的版本信息-> 1.1 Version information
 				.build();
